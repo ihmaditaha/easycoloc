@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Colocation;
+use App\Models\Expense;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -12,6 +15,16 @@ class AdminController extends Controller
     public function index()
     {
         //
+        $statistics = [
+            'total_users' => User::count(),
+            'banned_users' => User::where('is_banned', true)->count(),
+            'total_flatshares' => Colocation::count(),
+            'active_flatshares' => Colocation::where('status', 'active')->count(),
+            'total_expenses' => Expense::count(),
+            'total_amount' => Expense::sum('amount'),
+        ];
+
+        return view('admin.dashboard', compact('statistics'));
     }
 
     /**
