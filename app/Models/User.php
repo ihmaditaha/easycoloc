@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'is_banned',
+        'reputation',
     ];
 
     /**
@@ -46,11 +49,33 @@ class User extends Authenticatable
         ];
     }
 
-    public function role(){
-        return $this->hasOne(Role::class);
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 
-    public function users(){
-        return $this->hasMany(User::class);
+    public function colocation()
+    {
+        return $this->belongsToMany(Colocation::class);
+    }
+
+    public function createdExpenses()
+    {
+        return $this->hasMany(Expense::class, 'creator_id');
+    }
+
+    public function paidExpenses()
+    {
+        return $this->hasMany(Expense::class, 'payer_id');
+    }
+
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role->title == 'admin';
     }
 }

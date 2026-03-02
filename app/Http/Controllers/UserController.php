@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JoinedColocation;
-use App\Http\Requests\StoreJoinedColocationRequest;
-use App\Http\Requests\UpdateJoinedColocationRequest;
+use Illuminate\Http\Request;
 
-class JoinedColocationController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +25,7 @@ class JoinedColocationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreJoinedColocationRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,7 +33,7 @@ class JoinedColocationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(JoinedColocation $joinedColocation)
+    public function show(string $id)
     {
         //
     }
@@ -43,7 +41,7 @@ class JoinedColocationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(JoinedColocation $joinedColocation)
+    public function edit(string $id)
     {
         //
     }
@@ -51,7 +49,7 @@ class JoinedColocationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateJoinedColocationRequest $request, JoinedColocation $joinedColocation)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -59,7 +57,7 @@ class JoinedColocationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JoinedColocation $joinedColocation)
+    public function destroy(string $id)
     {
         //
     }

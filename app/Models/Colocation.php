@@ -10,11 +10,26 @@ class Colocation extends Model
     /** @use HasFactory<\Database\Factories\ColocationFactory> */
     use HasFactory;
 
-    public function users(){
-        return $this->hasManyThrough(User::class,Membership::class);
+    protected $fillable = [
+        'title',
+        'status',
+    ];
+
+    public function users()
+    {
+        return $this->hasManyThrough(User::class, Membership::class);
     }
 
-    public function membership(){
+    public function memberships()
+    {
         return $this->hasMany(Membership::class);
+    }
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+    public function Invitations()
+    {
+        return $this->hasMany(Invitation::class);
     }
 }

@@ -14,9 +14,21 @@ class Membership extends Model
         'user_id',
         'colocation_id',
         'created_at',
+        'left_at',
+        'role',
     ];
 
-    public function user(){
+    public function colocation()
+    {
+        return $this->belongsTo(Colocation::class);
+    }
+    public function user()
+    {
         return $this->hasOne(User::class);
+    }
+
+    public function isActive(): bool
+    {
+        return $this->left_at === null;
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\JoinedColocation;
+use App\Models\Membership;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class JoinedColocationPolicy
+class MembershipPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class JoinedColocationPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, JoinedColocation $joinedColocation): bool
+    public function view(User $user, Membership $Membership): bool
     {
         return false;
     }
@@ -35,7 +35,7 @@ class JoinedColocationPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, JoinedColocation $joinedColocation): bool
+    public function update(User $user, Membership $Membership): bool
     {
         return false;
     }
@@ -43,7 +43,7 @@ class JoinedColocationPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, JoinedColocation $joinedColocation): bool
+    public function delete(User $user, Membership $Membership): bool
     {
         return false;
     }
@@ -51,7 +51,7 @@ class JoinedColocationPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, JoinedColocation $joinedColocation): bool
+    public function restore(User $user, Membership $Membership): bool
     {
         return false;
     }
@@ -59,7 +59,7 @@ class JoinedColocationPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, JoinedColocation $joinedColocation): bool
+    public function forceDelete(User $user, Membership $Membership): bool
     {
         return false;
     }

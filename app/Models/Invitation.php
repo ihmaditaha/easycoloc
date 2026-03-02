@@ -10,11 +10,14 @@ class Invitation extends Model
     /** @use HasFactory<\Database\Factories\InvitationFactory> */
     use HasFactory;
 
-    public function user(){
-        return $this->hasOne(User::class);
-    }
+    protected $fillable = [
+        'email',
+        'token',
+        'status',
+        'colocation_id',
+    ];
 
     public function colocation(){
-        return $this->hasOne(Colocation::class);
+        return $this->belongsTo(Colocation::class);
     }
 }

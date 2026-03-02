@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Colocation;
-use App\Http\Requests\StoreColocationRequest;
-use App\Http\Requests\UpdateColocationRequest;
+use Illuminate\Http\Request;
 
-class ColocationController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +12,6 @@ class ColocationController extends Controller
     public function index()
     {
         //
-        
     }
 
     /**
@@ -28,7 +25,7 @@ class ColocationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreColocationRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -36,7 +33,7 @@ class ColocationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Colocation $colocation)
+    public function show(string $id)
     {
         //
     }
@@ -44,7 +41,7 @@ class ColocationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Colocation $colocation)
+    public function edit(string $id)
     {
         //
     }
@@ -52,7 +49,7 @@ class ColocationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateColocationRequest $request, Colocation $colocation)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -60,7 +57,7 @@ class ColocationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Colocation $colocation)
+    public function destroy(string $id)
     {
         //
     }

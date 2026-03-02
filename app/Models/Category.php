@@ -10,12 +10,18 @@ class Category extends Model
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
 
-    public function expenses(){
+    protected $fillable = [
+        'title',
+        'colocation_id',
+    ];
+
+    public function expenses()
+    {
         return $this->hasMany(Expense::class);
     }
 
-    public function colocation(){
+    public function colocation()
+    {
         return $this->belongsTo(Colocation::class);
     }
-
 }
