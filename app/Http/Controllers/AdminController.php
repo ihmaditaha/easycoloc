@@ -17,9 +17,9 @@ class AdminController extends Controller
         //
         $statistics = [
             'total_users' => User::count(),
-            'banned_users' => User::where('is_banned', true)->count(),
-            'total_flatshares' => Colocation::count(),
-            'active_flatshares' => Colocation::where('status', 'active')->count(),
+            'total_banned_users' => User::where('is_banned', true)->count(),
+            'total_colocations' => Colocation::count(),
+            'total_active_colocations' => Colocation::where('status', 'active')->count(),
             'total_expenses' => Expense::count(),
             'total_amount' => Expense::sum('amount'),
         ];

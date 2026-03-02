@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Colocation;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreColocationRequest;
 use App\Http\Requests\UpdateColocationRequest;
 
@@ -14,7 +15,10 @@ class ColocationController extends Controller
     public function index()
     {
         //
-        
+        $user = Auth::user();
+
+        $colocation = $user->activeColocation()->get();
+        return view('dashboard', compact('colocation'));
     }
 
     /**

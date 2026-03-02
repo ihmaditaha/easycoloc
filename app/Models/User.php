@@ -54,9 +54,17 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function colocation()
+    public function colocations()
     {
-        return $this->belongsToMany(Colocation::class);
+        return $this->belongsToMany(Colocation::class, 'memberships')
+            ->withPivot('joined_at', 'left_at')
+            ->withTimestamps()
+            ->using(Membership::class);
+    }
+
+    public function activeColocation()
+    {
+        return $this->colocations()->wherePivotNull('left_at')->where('status', 'active');
     }
 
     public function createdExpenses()
